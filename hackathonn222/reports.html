@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - ExpenseShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ExpenseShare</div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="expenses.html">Expenses</a>
+            <a href="groups.html">Groups</a>
+            <a href="reports.html" class="active">Reports</a>
+        </div>
+        <div class="user-profile">
+            <i class="fas fa-user"></i>
+        </div>
+    </nav>
+
+    <main class="container reports-container">
+        <div class="reports-header">
+            <h1>Financial Reports</h1>
+            <div class="date-filter">
+                <select class="filter-select">
+                    <option value="month">This Month</option>
+                    <option value="quarter">Last 3 Months</option>
+                    <option value="year">This Year</option>
+                    <option value="custom">Custom Range</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="reports-grid">
+            <!-- Spending Overview -->
+            <div class="report-card wide">
+                <h3>Spending Overview</h3>
+                <div class="spending-chart">
+                    <div class="chart-bar">
+                        <div class="bar" style="height: 60%"></div>
+                        <span>Jan</span>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar" style="height: 80%"></div>
+                        <span>Feb</span>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar" style="height: 40%"></div>
+                        <span>Mar</span>
+                    </div>
+                    <div class="chart-bar">
+                        <div class="bar" style="height: 70%"></div>
+                        <span>Apr</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category Breakdown -->
+            <div class="report-card">
+                <h3>Category Breakdown</h3>
+                <div class="category-list">
+                    <div class="category-item">
+                        <div class="category-info">
+                            <i class="fas fa-utensils"></i>
+                            <span>Food & Dining</span>
+                        </div>
+                        <div class="category-bar">
+                            <div class="progress" style="width: 75%"></div>
+                            <span>$450.00</span>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-info">
+                            <i class="fas fa-home"></i>
+                            <span>Rent & Utilities</span>
+                        </div>
+                        <div class="category-bar">
+                            <div class="progress" style="width: 90%"></div>
+                            <span>$800.00</span>
+                        </div>
+                    </div>
+                    <div class="category-item">
+                        <div class="category-info">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Shopping</span>
+                        </div>
+                        <div class="category-bar">
+                            <div class="progress" style="width: 45%"></div>
+                            <span>$250.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Expenses -->
+            <div class="report-card">
+                <h3>Group Expenses</h3>
+                <div class="group-expenses">
+                    <div class="pie-chart">
+                        <div class="pie-segment" style="--percentage: 45%"></div>
+                        <div class="pie-segment" style="--percentage: 30%"></div>
+                        <div class="pie-segment" style="--percentage: 25%"></div>
+                    </div>
+                    <div class="chart-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: var(--primary-color)"></span>
+                            <span>Roommates</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: var(--secondary-color)"></span>
+                            <span>Trip to Paris</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background-color: #e74c3c"></span>
+                            <span>Friday Night Out</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

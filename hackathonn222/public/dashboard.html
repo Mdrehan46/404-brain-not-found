@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Add Expense</title>
+    <style>
+        .expense-form {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background: #37b24d;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2f9e44;
+        }
+    </style>
+</head>
+<body>
+    <div class="expense-form">
+        <h2>Add New Expense</h2>
+        <form id="expenseForm">
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" id="description" name="description" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" name="amount" step="0.01" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="group">Group</label>
+                <select id="group" name="group" required>
+                    <option value="roommates">Roommates</option>
+                    <option value="trip">Trip to Paris</option>
+                    <option value="friday">Friday Night Out</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="splitBetween">Split Between</label>
+                <select id="splitBetween" name="splitBetween" multiple required>
+                    <option value="user1">John</option>
+                    <option value="user2">Sarah</option>
+                    <option value="user3">Mike</option>
+                </select>
+            </div>
+            
+            <button type="submit">Add Expense</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('expenseForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                description: document.getElementById('description').value,
+                amount: parseFloat(document.getElementById('amount').value),
+                group: document.getElementById('group').value,
+                splitBetween: Array.from(document.getElementById('splitBetween').selectedOptions)
+                    .map(option => ({ user: option.value, amount: 0 }))
+            };
+
+            // Calculate split amount
+            const splitAmount = formData.amount / formData.splitBetween.length;
+            formData.splitBetween.forEach(split => split.amount = splitAmount);
+
+            try {
+                const response = await fetch('/api/expenses/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    alert('Expense added successfully!');
+                    document.getElementById('expenseForm').reset();
+                } else {
+                    throw new Error('Failed to add expense');
+                }
+            } catch (error) {
+                alert('Error adding expense: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

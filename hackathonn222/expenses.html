@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses - ExpenseShare</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ExpenseShare</div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="expenses.html" class="active">Expenses</a>
+            <a href="groups.html">Groups</a>
+            <a href="reports.html">Reports</a>
+        </div>
+        <div class="user-profile">
+            <i class="fas fa-user"></i>
+        </div>
+    </nav>
+
+    <main class="container expenses-container">
+        <div class="expenses-header">
+            <h1>Expenses</h1>
+            <button class="add-expense-btn"><i class="fas fa-plus"></i> Add New Expense</button>
+        </div>
+
+        <div class="filters-section">
+            <div class="search-bar">
+                <input type="text" placeholder="Search expenses...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="filter-options">
+                <select class="filter-select">
+                    <option value="all">All Groups</option>
+                    <option value="roommates">Roommates</option>
+                    <option value="trip">Trip to Paris</option>
+                </select>
+                <select class="filter-select">
+                    <option value="all">All Time</option>
+                    <option value="month">This Month</option>
+                    <option value="week">This Week</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="expenses-list">
+            <div class="expense-item">
+                <div class="expense-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="expense-details">
+                    <h3>Dinner at Italian Restaurant</h3>
+                    <p class="expense-group">Roommates</p>
+                    <p class="expense-date">Oct 15, 2023</p>
+                </div>
+                <div class="expense-amounts">
+                    <p class="total-amount">$120.00</p>
+                    <p class="your-share negative">You owe $30.00 to mehar</p>
+                </div>
+                <div class="expense-actions">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                    <button class="action-icon"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+
+            <div class="expense-item">
+                <div class="expense-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="expense-details">
+                    <h3>Grocery Shopping</h3>
+                    <p class="expense-group">Roommates</p>
+                    <p class="expense-date">Oct 14, 2023</p>
+                </div>
+                <div class="expense-amounts">
+                    <p class="total-amount">$85.30</p>
+                    <p class="your-share positive">You are owed $42.65</p>
+                </div>
+                <div class="expense-actions">
+                    <button class="action-icon"><i class="fas fa-edit"></i></button>
+                    <button class="action-icon"><i class="fas fa-trash"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

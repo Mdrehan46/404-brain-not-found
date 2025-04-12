@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ExpenseShare - Smart Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">ExpenseShare</div>
+        <div class="nav-links">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="expenses.html">Expenses</a>
+            <a href="groups.html">Groups</a>
+            <a href="reports.html">Reports</a>
+        </div>
+        <div class="user-profile">
+            <i class="fas fa-user"></i>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="dashboard">
+            <h1>Dashboard</h1>
+            <div class="summary-cards">
+                <div class="card">
+                    <h3>Total Balance</h3>
+                    <p class="amount">$1,234.56</p>
+                </div>
+                <div class="card">
+                    <h3>You Owe</h3>
+                    <p class="amount negative">$150.00</p>
+                </div>
+                <div class="card">
+                    <h3>You're Owed</h3>
+                    <p class="amount positive">$300.00</p>
+                </div>
+            </div>
+
+            <div class="expense-form">
+                <h2>Add New Expense</h2>
+                <form>
+                    <input type="text" placeholder="Description" required>
+                    <input type="number" placeholder="Amount" required>
+                    <select required>
+                        <option value="">Select Group</option>
+                        <option value="1">Roommates</option>
+                        <option value="2">Trip to Paris</option>
+                    </select>
+                    <button type="submit">Add Expense</button>
+                    <a href="addexpense.html">Add Expense</a>
+                    
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
